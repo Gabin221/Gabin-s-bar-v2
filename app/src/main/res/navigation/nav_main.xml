@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.gabinsbarv2.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/softsFragment"
+        android:name="com.example.gabinsbarv2.fragments.CompteFragment"
+        android:label="fragment_shop"
+        tools:layout="@layout/fragment_compte" />
+
+    <fragment
+        android:id="@+id/alcoolFragment"
+        android:name="com.example.gabinsbarv2.fragments.SoftsFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_softs" />
+
+    <fragment
+        android:id="@+id/panierFragment"
+        android:name="com.example.gabinsbarv2.fragments.PanierFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_panier" />
+
+    <fragment
+        android:id="@+id/compteFragment"
+        android:name="com.example.gabinsbarv2.fragments.PanierFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_panier" />
+
+</navigation>
