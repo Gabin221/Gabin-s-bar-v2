@@ -3,7 +3,7 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home"
+        android:title="Accueil"
         android:textColor="@drawable/selector"/>
     <item
         android:id="@+id/softsFragment"

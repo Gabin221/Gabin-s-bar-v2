@@ -5,4 +5,5 @@
     <color name="black">#000000</color>
     <color name="item_menu_selected">#89A3FF</color>
     <color name="item_menu_default">#9E9E9E</color>
+    <color name="background_fragments">#F0F0F0</color>
 </resources>
