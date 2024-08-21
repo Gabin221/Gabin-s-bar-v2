@@ -29,4 +29,12 @@
         android:text="103 boissons dispos."
         android:textSize="15sp"/>
 
+    <View
+        android:id="@+id/myRectangleView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rectangle_button"/>
+
 </LinearLayout>
