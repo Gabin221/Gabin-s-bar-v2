@@ -1,0 +1,41 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Fond elliptique tourné -->
+    <path
+        android:fillColor="#89A3FF"
+        android:pathData="M100,20 A85,60 0 1,1 100,180 A85,60 0 1,1 100,20 Z"
+        android:rotation="-15"
+        android:pivotX="100"
+        android:pivotY="100"
+        android:fillType="evenOdd" />
+
+    <!-- Bordure elliptique noire non tournée -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#000000"
+        android:strokeWidth="5"
+        android:pathData="M100,20 A85,60 0 1,1 100,180 A85,60 0 1,1 100,20 Z"
+        android:rotation="-30"
+        android:pivotX="100"
+        android:pivotY="100" />
+
+    <!-- Texte "Gabin's Bar" -->
+    <group
+        android:translateX="0"
+        android:translateY="115">
+        <text
+            android:fillColor="#FFFFFF"
+            android:textSize="40sp"
+            android:fontFamily="sans-serif"
+            android:letterSpacing="0.1"
+            android:text="Gabin's Bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"/>
+    </group>
+
+</vector>

@@ -4,6 +4,24 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="item_menu_selected">#89A3FF</color>
+    <color name="button_suggestions">#ADD8E6</color>
+    <color name="button_suggestions_text">#00008B</color>
+    <color name="buttons_sirops">#BDFFBD</color>
+    <color name="buttons_sirops_text">#04D300</color>
+    <color name="buttons_softs">#FFFFE0</color>
+    <color name="buttons_softs_text">#FFA500</color>
+    <color name="buttons_bieres">#FFB6C1</color>
+    <color name="buttons_bieres_text">#C71585</color>
+    <color name="buttons_vins">#E6E6FA</color>
+    <color name="buttons_vins_text">#4B0082</color>
+    <color name="buttons_classiques">#E0FFFF</color>
+    <color name="buttons_classiques_text">#008B8B</color>
+    <color name="buttons_extravagants">#FFE4B5</color>
+    <color name="buttons_extravagants_text">#8B4513</color>
+    <color name="buttons_cafes">#F08080</color>
+    <color name="buttons_cafes_text">#8B0000</color>
+    <color name="buttons_thes">#40E0D0</color>
+    <color name="buttons_thes_text">#003366</color>
     <color name="item_menu_default">#9E9E9E</color>
     <color name="background_fragments">#F0F0F0</color>
 </resources>
