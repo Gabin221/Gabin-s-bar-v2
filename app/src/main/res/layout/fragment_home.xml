@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:text="Albert Einstein"
+        android:text="Inconnu"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
@@ -96,6 +96,7 @@
         android:layout_marginTop="20dp">
 
         <LinearLayout
+            android:id="@+id/buttonHome2Sirops"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
@@ -140,6 +141,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/buttonHome2Softs"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
@@ -184,6 +186,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/buttonHome2Bieres"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
@@ -237,6 +240,7 @@
         android:layout_marginTop="10dp">
 
         <LinearLayout
+            android:id="@+id/buttonHome2Vins"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
@@ -281,6 +285,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/buttonHome2Classiques"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
@@ -325,6 +330,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/buttonHome2Extravagants"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
@@ -378,6 +384,7 @@
         android:layout_marginTop="10dp">
 
         <LinearLayout
+            android:id="@+id/buttonHome2Cafes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.45"
@@ -422,6 +429,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/buttonHome2Thes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.45"

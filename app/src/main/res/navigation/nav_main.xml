@@ -10,6 +10,7 @@
         android:name="com.example.gabinsbarv2.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+
     <fragment
         android:id="@+id/softsFragment"
         android:name="com.example.gabinsbarv2.fragments.SoftsFragment"
