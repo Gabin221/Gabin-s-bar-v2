@@ -155,11 +155,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="sirops"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewSirops"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -170,11 +169,10 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="softs"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewSofts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -185,11 +183,10 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="cafés"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewCafes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -200,11 +197,10 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="thés"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewThes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

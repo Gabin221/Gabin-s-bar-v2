@@ -8,11 +8,15 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.gabinsbarv2.BoissonAdapter
 import com.example.gabinsbarv2.R
 import com.example.gabinsbarv2.databinding.FragmentSoftsBinding
+import dataClassSofts
 
 class SoftsFragment : Fragment() {
     private var _binding: FragmentSoftsBinding? = null
@@ -28,6 +32,15 @@ class SoftsFragment : Fragment() {
     lateinit var buttonCafes: LinearLayout
     lateinit var buttonThes: LinearLayout
 
+    private val boissonsListSirops = mutableListOf<dataClassSofts>()
+    private val boissonsListSofts = mutableListOf<dataClassSofts>()
+    private val boissonsListCafes = mutableListOf<dataClassSofts>()
+    private val boissonsListThes = mutableListOf<dataClassSofts>()
+    private lateinit var boissonAdapterSirops: BoissonAdapter
+    private lateinit var boissonAdapterSofts: BoissonAdapter
+    private lateinit var boissonAdapterCafes: BoissonAdapter
+    private lateinit var boissonAdapterThes: BoissonAdapter
+    
     var quantiteTotal = 0
     var requestCount = 0
     val TOTAL_REQUESTS = 4
@@ -48,6 +61,26 @@ class SoftsFragment : Fragment() {
         buttonSoft = root.findViewById(R.id.buttonSofts)
         buttonCafes = root.findViewById(R.id.buttonCafes)
         buttonThes = root.findViewById(R.id.buttonThes)
+
+        val recyclerViewSirops = root.findViewById<RecyclerView>(R.id.recyclerViewSirops)
+        recyclerViewSirops.layoutManager = LinearLayoutManager(requireContext())
+        boissonAdapterSirops = BoissonAdapter(boissonsListSirops)
+        recyclerViewSirops.adapter = boissonAdapterSirops
+
+        val recyclerViewSofts = root.findViewById<RecyclerView>(R.id.recyclerViewSofts)
+        recyclerViewSofts.layoutManager = LinearLayoutManager(requireContext())
+        boissonAdapterSofts = BoissonAdapter(boissonsListSofts)
+        recyclerViewSofts.adapter = boissonAdapterSofts
+
+        val recyclerViewCafes = root.findViewById<RecyclerView>(R.id.recyclerViewCafes)
+        recyclerViewCafes.layoutManager = LinearLayoutManager(requireContext())
+        boissonAdapterCafes = BoissonAdapter(boissonsListCafes)
+        recyclerViewCafes.adapter = boissonAdapterCafes
+
+        val recyclerViewThes = root.findViewById<RecyclerView>(R.id.recyclerViewThes)
+        recyclerViewThes.layoutManager = LinearLayoutManager(requireContext())
+        boissonAdapterThes = BoissonAdapter(boissonsListThes)
+        recyclerViewThes.adapter = boissonAdapterThes
 
         displayQuantites()
         gestionClicks()
@@ -104,17 +137,25 @@ class SoftsFragment : Fragment() {
         requestCount++
         if (requestCount == TOTAL_REQUESTS) {
             quantiteBoissons.text = "$quantiteTotal boissons dispos."
+            boissonAdapterSirops.notifyDataSetChanged()
+            boissonAdapterSofts.notifyDataSetChanged()
+            boissonAdapterCafes.notifyDataSetChanged()
+            boissonAdapterThes.notifyDataSetChanged()
         }
     }
 
     private fun recupererSirops() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererSirops.php"
+        val url = "" // your URL
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split(";").map { item ->
+                    val parts = item.split("-")
+                    dataClassSofts(parts[0], parts[1])
+                }
+                boissonsListSirops.addAll(liste)
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -128,12 +169,16 @@ class SoftsFragment : Fragment() {
 
     private fun recupererSofts() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererSofts.php"
+        val url = "" // your URL
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split(";").map { item ->
+                    val parts = item.split("-")
+                    dataClassSofts(parts[0], parts[1])
+                }
+                boissonsListSofts.addAll(liste)
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -147,12 +192,16 @@ class SoftsFragment : Fragment() {
 
     private fun recupererCafes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererCafes.php"
+        val url = "" // your URL
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split(";").map { item ->
+                    val parts = item.split("-")
+                    dataClassSofts(parts[0], parts[1])
+                }
+                boissonsListCafes.addAll(liste)
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -166,12 +215,16 @@ class SoftsFragment : Fragment() {
 
     private fun recupererThes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererThes.php"
+        val url = "" // your URL
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split(";").map { item ->
+                    val parts = item.split("-")
+                    dataClassSofts(parts[0], parts[1])
+                }
+                boissonsListThes.addAll(liste)
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
