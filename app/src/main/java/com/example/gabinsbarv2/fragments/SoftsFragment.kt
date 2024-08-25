@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.gabinsbarv2.R
 import com.example.gabinsbarv2.databinding.FragmentSoftsBinding
 
@@ -23,6 +27,10 @@ class SoftsFragment : Fragment() {
     lateinit var buttonSoft: LinearLayout
     lateinit var buttonCafes: LinearLayout
     lateinit var buttonThes: LinearLayout
+
+    var quantiteTotal = 0
+    var requestCount = 0
+    val TOTAL_REQUESTS = 4
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -86,12 +94,93 @@ class SoftsFragment : Fragment() {
     }
 
     fun displayQuantites() {
-        val quantites = listOf(28, 3, 6, 4)
-        var quantiteTotal = 0
-        for (quantite in quantites) {
-            quantiteTotal += quantite
+        recupererSirops()
+        recupererSofts()
+        recupererCafes()
+        recupererThes()
+    }
+
+    private fun onRequestComplete() {
+        requestCount++
+        if (requestCount == TOTAL_REQUESTS) {
+            quantiteBoissons.text = "$quantiteTotal boissons dispos."
         }
-        quantiteBoissons.text = "$quantiteTotal boissons dispos."
+    }
+
+    private fun recupererSirops() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererSirops.php"
+
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des sirops", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererSofts() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererSofts.php"
+
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des softs", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererCafes() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererCafes.php"
+
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des cafés", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererThes() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererThes.php"
+
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des thés", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
     }
 
 }

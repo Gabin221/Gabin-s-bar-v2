@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.gabinsbarv2.R
 import com.example.gabinsbarv2.databinding.FragmentAlcoolBinding
 
@@ -23,6 +27,10 @@ class AlcoolFragment : Fragment() {
     lateinit var buttonVins: LinearLayout
     lateinit var buttonClassiques: LinearLayout
     lateinit var buttonExtravagants: LinearLayout
+
+    var quantiteTotal = 0
+    var requestCount = 0
+    val TOTAL_REQUESTS = 4
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -86,12 +94,93 @@ class AlcoolFragment : Fragment() {
     }
 
     fun displayQuantites() {
-        val quantites = listOf(5, 7, 6, 4)
-        var quantiteTotal = 0
-        for (quantite in quantites) {
-            quantiteTotal += quantite
+        recupererBieres()
+        recupererVins()
+        recupererClassiques()
+        recupererExtravagants()
+    }
+
+    private fun onRequestComplete() {
+        requestCount++
+        if (requestCount == TOTAL_REQUESTS) {
+            quantiteBoissons.text = "$quantiteTotal boissons dispos."
         }
-        quantiteBoissons.text = "$quantiteTotal boissons dispos."
+    }
+
+    private fun recupererBieres() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererBieres.php"
+
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des bières", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererVins() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererVins.php"
+
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des vins", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererClassiques() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererClassiques.php"
+
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des classiques", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererExtravagants() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererExtravagants.php"
+
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des extravagants", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
     }
 
 }
