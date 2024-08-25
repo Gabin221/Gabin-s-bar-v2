@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.navigation.fragment.findNavController
+import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.gabinsbarv2.R
 import com.example.gabinsbarv2.databinding.FragmentHomeBinding
 
@@ -32,6 +35,10 @@ class HomeFragment : Fragment() {
     lateinit var quantiteExtravagants: TextView
     lateinit var quantiteCafes: TextView
     lateinit var quantiteThes: TextView
+
+    var quantiteTotal = 0
+    var requestCount = 0
+    val TOTAL_REQUESTS = 8
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,68 +71,172 @@ class HomeFragment : Fragment() {
     }
 
     fun displayQuantites() {
-        val quantites = listOf(28, 3, 5, 7, 6, 4, 6, 4)
-        var quantiteTotal = 0
-        for (quantite in quantites) {
-            quantiteTotal += quantite
-        }
-        quantiteSirops.text = quantites[0].toString()
-        quantiteSofts.text = quantites[1].toString()
-        quantiteBieres.text = quantites[2].toString()
-        quantiteVins.text = quantites[3].toString()
-        quantiteClassiques.text = quantites[4].toString()
-        quantiteExtravagants.text = quantites[5].toString()
-        quantiteCafes.text = quantites[6].toString()
-        quantiteThes.text = quantites[7].toString()
-        quantiteBoissons.text = "$quantiteTotal boissons dispos."
+        recupererSirops()
+        recupererSofts()
+        recupererBieres()
+        recupererVins()
+        recupererClassiques()
+        recupererExtravagants()
+        recupererCafes()
+        recupererThes()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        buttonHome2Sirops.setOnClickListener {
-            //findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.softsFragment)
-        }
-
-        buttonHome2Softs.setOnClickListener {
-            //findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.softsFragment)
-        }
-
-        buttonHome2Cafes.setOnClickListener {
-            //findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.softsFragment)
-        }
-
-        buttonHome2Thes.setOnClickListener {
-            //findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.softsFragment)
-        }
-
-        buttonHome2Bieres.setOnClickListener {
-            //findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.alcoolFragment)
-        }
-
-        buttonHome2Vins.setOnClickListener {
-            //findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.alcoolFragment)
-        }
-
-        buttonHome2Classiques.setOnClickListener {
-            //findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.alcoolFragment)
-        }
-
-        buttonHome2Extravagants.setOnClickListener {
-            //findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.alcoolFragment)
+    private fun onRequestComplete() {
+        requestCount++
+        if (requestCount == TOTAL_REQUESTS) {
+            quantiteBoissons.text = "$quantiteTotal boissons dispos."
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun recupererSirops() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "" // your URL
+
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteSirops.text = liste.size.toString()
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des sirops", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererSofts() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "" // your URL
+
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteSofts.text = liste.size.toString()
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des softs", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererBieres() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "" // your URL
+
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteBieres.text = liste.size.toString()
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des bières", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererVins() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "" // your URL
+
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteVins.text = liste.size.toString()
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des vins", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererClassiques() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "" // your URL
+
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteClassiques.text = liste.size.toString()
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des classiques", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererExtravagants() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "" // your URL
+
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteExtravagants.text = liste.size.toString()
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des extravagants", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererCafes() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "" // your URL
+
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteCafes.text = liste.size.toString()
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des cafés", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
+    }
+
+    private fun recupererThes() {
+        val queue = Volley.newRequestQueue(requireContext())
+        val url = "" // your URL
+
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            { response ->
+                val liste = response.split(";")
+                quantiteThes.text = liste.size.toString()
+                quantiteTotal += liste.size
+                onRequestComplete()
+            },
+            {
+                Toast.makeText(requireContext(), "Problème de récupération des thés", Toast.LENGTH_SHORT).show()
+                onRequestComplete()
+            })
+
+        queue.add(stringRequest)
     }
 }
