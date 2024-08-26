@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -68,6 +69,56 @@ class HomeFragment : Fragment() {
         displayQuantites()
 
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Gestion des clics sur les boutons pour naviguer vers les différentes catégories de boissons
+        buttonHome2Bieres.setOnClickListener {
+            findNavController().popBackStack(R.id.homeFragment, false)
+            findNavController().navigate(R.id.alcoolFragment)
+        }
+
+        buttonHome2Vins.setOnClickListener {
+            findNavController().popBackStack(R.id.homeFragment, false)
+            findNavController().navigate(R.id.alcoolFragment)
+        }
+
+        buttonHome2Classiques.setOnClickListener {
+            findNavController().popBackStack(R.id.homeFragment, false)
+            findNavController().navigate(R.id.alcoolFragment)
+        }
+
+        buttonHome2Extravagants.setOnClickListener {
+            findNavController().popBackStack(R.id.homeFragment, false)
+            findNavController().navigate(R.id.alcoolFragment)
+        }
+
+        buttonHome2Sirops.setOnClickListener {
+            findNavController().popBackStack(R.id.homeFragment, false)
+            findNavController().navigate(R.id.softsFragment)
+        }
+
+        buttonHome2Softs.setOnClickListener {
+            findNavController().popBackStack(R.id.homeFragment, false)
+            findNavController().navigate(R.id.softsFragment)
+        }
+
+        buttonHome2Cafes.setOnClickListener {
+            findNavController().popBackStack(R.id.homeFragment, false)
+            findNavController().navigate(R.id.softsFragment)
+        }
+
+        buttonHome2Thes.setOnClickListener {
+            findNavController().popBackStack(R.id.homeFragment, false)
+            findNavController().navigate(R.id.softsFragment)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     fun displayQuantites() {

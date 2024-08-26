@@ -18,7 +18,6 @@ import com.example.gabinsbarv2.databinding.FragmentAlcoolBinding
 import com.example.gabinsbarv2.AlcoolAdapter
 import dataClassAlcool
 import com.example.gabinsbarv2.BieresAdapter
-import com.example.gabinsbarv2.BoissonAdapter
 import dataClassBieres
 import com.example.gabinsbarv2.VinsAdapter
 import dataClassVins
