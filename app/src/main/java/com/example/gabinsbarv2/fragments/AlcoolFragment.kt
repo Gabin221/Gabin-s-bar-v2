@@ -8,11 +8,20 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.gabinsbarv2.R
 import com.example.gabinsbarv2.databinding.FragmentAlcoolBinding
+import com.example.gabinsbarv2.AlcoolAdapter
+import dataClassAlcool
+import com.example.gabinsbarv2.BieresAdapter
+import com.example.gabinsbarv2.BoissonAdapter
+import dataClassBieres
+import com.example.gabinsbarv2.VinsAdapter
+import dataClassVins
 
 class AlcoolFragment : Fragment() {
     private var _binding: FragmentAlcoolBinding? = null
@@ -27,6 +36,15 @@ class AlcoolFragment : Fragment() {
     lateinit var buttonVins: LinearLayout
     lateinit var buttonClassiques: LinearLayout
     lateinit var buttonExtravagants: LinearLayout
+
+    private val boissonsListBieres = mutableListOf<dataClassBieres>()
+    private val boissonsListVins = mutableListOf<dataClassVins>()
+    private val boissonsListClassiques = mutableListOf<dataClassAlcool>()
+    private val boissonsListExtravagants = mutableListOf<dataClassAlcool>()
+    private lateinit var boissonAdapterBieres: BieresAdapter
+    private lateinit var boissonAdapterVins: VinsAdapter
+    private lateinit var boissonAdapterClassiques: AlcoolAdapter
+    private lateinit var boissonAdapterExtravagants: AlcoolAdapter
 
     var quantiteTotal = 0
     var requestCount = 0
@@ -48,6 +66,26 @@ class AlcoolFragment : Fragment() {
         buttonVins = root.findViewById(R.id.buttonVins)
         buttonClassiques = root.findViewById(R.id.buttonClassiques)
         buttonExtravagants = root.findViewById(R.id.buttonExtravagants)
+
+        val recyclerViewBieres = root.findViewById<RecyclerView>(R.id.recyclerViewBieres)
+        recyclerViewBieres.layoutManager = LinearLayoutManager(requireContext())
+        boissonAdapterBieres = BieresAdapter(boissonsListBieres)
+        recyclerViewBieres.adapter = boissonAdapterBieres
+
+        val recyclerViewVins = root.findViewById<RecyclerView>(R.id.recyclerViewVins)
+        recyclerViewVins.layoutManager = LinearLayoutManager(requireContext())
+        boissonAdapterVins = VinsAdapter(boissonsListVins)
+        recyclerViewVins.adapter = boissonAdapterVins
+
+        val recyclerViewClassiques = root.findViewById<RecyclerView>(R.id.recyclerViewClassiques)
+        recyclerViewClassiques.layoutManager = LinearLayoutManager(requireContext())
+        boissonAdapterClassiques = AlcoolAdapter(boissonsListClassiques)
+        recyclerViewClassiques.adapter = boissonAdapterClassiques
+
+        val recyclerViewExtravagants = root.findViewById<RecyclerView>(R.id.recyclerViewExtravagants)
+        recyclerViewExtravagants.layoutManager = LinearLayoutManager(requireContext())
+        boissonAdapterExtravagants = AlcoolAdapter(boissonsListExtravagants)
+        recyclerViewExtravagants.adapter = boissonAdapterExtravagants
 
         displayQuantites()
         gestionClicks()
@@ -104,17 +142,25 @@ class AlcoolFragment : Fragment() {
         requestCount++
         if (requestCount == TOTAL_REQUESTS) {
             quantiteBoissons.text = "$quantiteTotal boissons dispos."
+            boissonAdapterBieres.notifyDataSetChanged()
+            boissonAdapterVins.notifyDataSetChanged()
+            boissonAdapterClassiques.notifyDataSetChanged()
+            boissonAdapterExtravagants.notifyDataSetChanged()
         }
     }
 
     private fun recupererBieres() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererBieres.php"
+        val url = "" // your url
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|").map { item ->
+                    val parts = item.split(";")
+                    dataClassBieres(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5])
+                }
+                boissonsListBieres.addAll(liste)
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -128,12 +174,16 @@ class AlcoolFragment : Fragment() {
 
     private fun recupererVins() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererVins.php"
+        val url = "" // your url
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|").map { item ->
+                    val parts = item.split(";")
+                    dataClassVins(parts[0], parts[1], parts[2], parts[3], parts[4])
+                }
+                boissonsListVins.addAll(liste)
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -147,12 +197,16 @@ class AlcoolFragment : Fragment() {
 
     private fun recupererClassiques() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererClassiques.php"
+        val url = "" // your url
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|").map { item ->
+                    val parts = item.split(";")
+                    dataClassAlcool(parts[0], parts[1], parts[2])
+                }
+                boissonsListClassiques.addAll(liste)
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -166,12 +220,16 @@ class AlcoolFragment : Fragment() {
 
     private fun recupererExtravagants() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "https://gabinserrurot.fr/Api_gabinsbar/recupererExtravagants.php"
+        val url = "" // your url
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|").map { item ->
+                    val parts = item.split(";")
+                    dataClassAlcool(parts[0], parts[1], parts[2])
+                }
+                boissonsListExtravagants.addAll(liste)
                 quantiteTotal += liste.size
                 onRequestComplete()
             },

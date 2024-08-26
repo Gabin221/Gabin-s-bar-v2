@@ -90,11 +90,11 @@ class HomeFragment : Fragment() {
 
     private fun recupererSirops() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|")
                 quantiteSirops.text = liste.size.toString()
                 quantiteTotal += liste.size
                 onRequestComplete()
@@ -109,11 +109,11 @@ class HomeFragment : Fragment() {
 
     private fun recupererSofts() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|")
                 quantiteSofts.text = liste.size.toString()
                 quantiteTotal += liste.size
                 onRequestComplete()
@@ -128,11 +128,11 @@ class HomeFragment : Fragment() {
 
     private fun recupererBieres() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|")
                 quantiteBieres.text = liste.size.toString()
                 quantiteTotal += liste.size
                 onRequestComplete()
@@ -147,11 +147,11 @@ class HomeFragment : Fragment() {
 
     private fun recupererVins() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|")
                 quantiteVins.text = liste.size.toString()
                 quantiteTotal += liste.size
                 onRequestComplete()
@@ -166,11 +166,11 @@ class HomeFragment : Fragment() {
 
     private fun recupererClassiques() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|")
                 quantiteClassiques.text = liste.size.toString()
                 quantiteTotal += liste.size
                 onRequestComplete()
@@ -185,11 +185,11 @@ class HomeFragment : Fragment() {
 
     private fun recupererExtravagants() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|")
                 quantiteExtravagants.text = liste.size.toString()
                 quantiteTotal += liste.size
                 onRequestComplete()
@@ -204,11 +204,11 @@ class HomeFragment : Fragment() {
 
     private fun recupererCafes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|")
                 quantiteCafes.text = liste.size.toString()
                 quantiteTotal += liste.size
                 onRequestComplete()
@@ -223,11 +223,11 @@ class HomeFragment : Fragment() {
 
     private fun recupererThes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
-                val liste = response.split(";")
+                val liste = response.split("|")
                 quantiteThes.text = liste.size.toString()
                 quantiteTotal += liste.size
                 onRequestComplete()

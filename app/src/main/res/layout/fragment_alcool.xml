@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:background="@color/background_fragments"
     android:orientation="vertical"
-    android:paddingStart="20dp"
+    android:paddingLeft="20dp"
+    android:paddingBottom="65dp"
     tools:context=".fragments.AlcoolFragment">
 
     <TextView
@@ -155,11 +156,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="bieres"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewBieres"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -170,11 +170,10 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="vins"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewVins"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -185,11 +184,10 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="classiques"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewClassiques"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -200,11 +198,10 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="extravagants"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewExtravagants"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

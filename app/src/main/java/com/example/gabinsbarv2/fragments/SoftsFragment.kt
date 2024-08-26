@@ -14,9 +14,11 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.gabinsbarv2.BoissonAdapter
+import com.example.gabinsbarv2.SiropsSodasAdapter
 import com.example.gabinsbarv2.R
 import com.example.gabinsbarv2.databinding.FragmentSoftsBinding
 import dataClassSofts
+import dataClassSiropsSodas
 
 class SoftsFragment : Fragment() {
     private var _binding: FragmentSoftsBinding? = null
@@ -32,12 +34,12 @@ class SoftsFragment : Fragment() {
     lateinit var buttonCafes: LinearLayout
     lateinit var buttonThes: LinearLayout
 
-    private val boissonsListSirops = mutableListOf<dataClassSofts>()
-    private val boissonsListSofts = mutableListOf<dataClassSofts>()
+    private val boissonsListSirops = mutableListOf<dataClassSiropsSodas>()
+    private val boissonsListSofts = mutableListOf<dataClassSiropsSodas>()
     private val boissonsListCafes = mutableListOf<dataClassSofts>()
     private val boissonsListThes = mutableListOf<dataClassSofts>()
-    private lateinit var boissonAdapterSirops: BoissonAdapter
-    private lateinit var boissonAdapterSofts: BoissonAdapter
+    private lateinit var boissonAdapterSirops: SiropsSodasAdapter
+    private lateinit var boissonAdapterSofts: SiropsSodasAdapter
     private lateinit var boissonAdapterCafes: BoissonAdapter
     private lateinit var boissonAdapterThes: BoissonAdapter
     
@@ -64,12 +66,12 @@ class SoftsFragment : Fragment() {
 
         val recyclerViewSirops = root.findViewById<RecyclerView>(R.id.recyclerViewSirops)
         recyclerViewSirops.layoutManager = LinearLayoutManager(requireContext())
-        boissonAdapterSirops = BoissonAdapter(boissonsListSirops)
+        boissonAdapterSirops = SiropsSodasAdapter(boissonsListSirops)
         recyclerViewSirops.adapter = boissonAdapterSirops
 
         val recyclerViewSofts = root.findViewById<RecyclerView>(R.id.recyclerViewSofts)
         recyclerViewSofts.layoutManager = LinearLayoutManager(requireContext())
-        boissonAdapterSofts = BoissonAdapter(boissonsListSofts)
+        boissonAdapterSofts = SiropsSodasAdapter(boissonsListSofts)
         recyclerViewSofts.adapter = boissonAdapterSofts
 
         val recyclerViewCafes = root.findViewById<RecyclerView>(R.id.recyclerViewCafes)
@@ -146,14 +148,14 @@ class SoftsFragment : Fragment() {
 
     private fun recupererSirops() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";").map { item ->
-                    val parts = item.split("-")
-                    dataClassSofts(parts[0], parts[1])
+                val liste = response.split("|").map { item ->
+                    val parts = item.split(";")
+                    dataClassSiropsSodas(parts[0], parts[1], parts[2])
                 }
                 boissonsListSirops.addAll(liste)
                 quantiteTotal += liste.size
@@ -169,14 +171,14 @@ class SoftsFragment : Fragment() {
 
     private fun recupererSofts() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";").map { item ->
-                    val parts = item.split("-")
-                    dataClassSofts(parts[0], parts[1])
+                val liste = response.split("|").map { item ->
+                    val parts = item.split(";")
+                    dataClassSiropsSodas(parts[0], parts[1], parts[2])
                 }
                 boissonsListSofts.addAll(liste)
                 quantiteTotal += liste.size
@@ -192,13 +194,13 @@ class SoftsFragment : Fragment() {
 
     private fun recupererCafes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";").map { item ->
-                    val parts = item.split("-")
+                val liste = response.split("|").map { item ->
+                    val parts = item.split(";")
                     dataClassSofts(parts[0], parts[1])
                 }
                 boissonsListCafes.addAll(liste)
@@ -215,13 +217,13 @@ class SoftsFragment : Fragment() {
 
     private fun recupererThes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "" // your url
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val liste = response.split(";").map { item ->
-                    val parts = item.split("-")
+                val liste = response.split("|").map { item ->
+                    val parts = item.split(";")
                     dataClassSofts(parts[0], parts[1])
                 }
                 boissonsListThes.addAll(liste)
