@@ -35,4 +35,10 @@
         android:label="Comptes"
         tools:layout="@layout/fragment_compte" />
 
+    <fragment
+        android:id="@+id/suggestionsFragment"
+        android:name="com.example.gabinsbarv2.fragments.SuggestionsFragment"
+        android:label="Suggestions"
+        tools:layout="@layout/fragment_suggestions" />
+
 </navigation>

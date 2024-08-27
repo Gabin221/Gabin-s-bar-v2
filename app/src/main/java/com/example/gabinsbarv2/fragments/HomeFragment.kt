@@ -27,6 +27,7 @@ class HomeFragment : Fragment() {
     lateinit var buttonHome2Extravagants: LinearLayout
     lateinit var buttonHome2Cafes: LinearLayout
     lateinit var buttonHome2Thes: LinearLayout
+    lateinit var buttonHome2Suggestions: LinearLayout
     lateinit var quantiteBoissons: TextView
     lateinit var quantiteSirops: TextView
     lateinit var quantiteSofts: TextView
@@ -56,6 +57,7 @@ class HomeFragment : Fragment() {
         buttonHome2Extravagants = root.findViewById(R.id.buttonHome2Extravagants)
         buttonHome2Cafes = root.findViewById(R.id.buttonHome2Cafes)
         buttonHome2Thes = root.findViewById(R.id.buttonHome2Thes)
+        buttonHome2Suggestions = root.findViewById(R.id.buttonHome2Suggestions)
         quantiteBoissons = root.findViewById(R.id.quantiteBoissons)
         quantiteSirops = root.findViewById(R.id.quantiteSirops)
         quantiteSofts = root.findViewById(R.id.quantiteSofts)
@@ -113,6 +115,11 @@ class HomeFragment : Fragment() {
         buttonHome2Thes.setOnClickListener {
             findNavController().popBackStack(R.id.homeFragment, false)
             findNavController().navigate(R.id.softsFragment)
+        }
+
+        buttonHome2Suggestions.setOnClickListener {
+            findNavController().popBackStack(R.id.homeFragment, false)
+            findNavController().navigate(R.id.suggestionsFragment)
         }
     }
 
