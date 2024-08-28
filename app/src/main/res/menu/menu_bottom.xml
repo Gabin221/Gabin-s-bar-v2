@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Accueil"
-        android:textColor="@drawable/selector"/>
+        android:textColor="@drawable/selector" />
     <item
         android:id="@+id/softsFragment"
         android:icon="@drawable/ic_baseline_softs_24"
         android:title="Softs"
-        android:textColor="@drawable/selector"/>
+        android:textColor="@drawable/selector" />
     <item
         android:id="@+id/alcoolFragment"
         android:icon="@drawable/ic_baseline_alcool_24"
         android:title="Alcool"
-        android:textColor="@drawable/selector"/>
+        android:textColor="@drawable/selector" />
     <item
         android:id="@+id/panierFragment"
         android:icon="@drawable/ic_baseline_panier_24"
         android:title="Panier"
-        android:textColor="@drawable/selector"/>
+        android:textColor="@drawable/selector" />
     <item
         android:id="@+id/compteFragment"
         android:icon="@drawable/ic_baseline_compte_24"
         android:title="Compte"
-        android:textColor="@drawable/selector"/>
+        android:textColor="@drawable/selector" />
 </menu>
