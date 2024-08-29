@@ -148,7 +148,7 @@ class SoftsFragment : Fragment() {
 
     private fun recupererSirops() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -171,7 +171,7 @@ class SoftsFragment : Fragment() {
 
     private fun recupererSofts() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -194,7 +194,7 @@ class SoftsFragment : Fragment() {
 
     private fun recupererCafes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -217,7 +217,7 @@ class SoftsFragment : Fragment() {
 
     private fun recupererThes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

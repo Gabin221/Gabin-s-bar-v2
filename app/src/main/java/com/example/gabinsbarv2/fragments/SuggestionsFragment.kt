@@ -64,7 +64,7 @@ class SuggestionsFragment : Fragment() {
 
     private fun recupererSirops() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -85,7 +85,7 @@ class SuggestionsFragment : Fragment() {
 
     private fun recupererSofts() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -106,7 +106,7 @@ class SuggestionsFragment : Fragment() {
 
     private fun recupererBieres() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -144,7 +144,7 @@ class SuggestionsFragment : Fragment() {
 
     private fun recupererVins() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -165,7 +165,7 @@ class SuggestionsFragment : Fragment() {
 
     private fun recupererClassiques() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -186,7 +186,7 @@ class SuggestionsFragment : Fragment() {
 
     private fun recupererExtravagants() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your URL
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

@@ -37,10 +37,21 @@ class HomeFragment : Fragment() {
     lateinit var quantiteExtravagants: TextView
     lateinit var quantiteCafes: TextView
     lateinit var quantiteThes: TextView
+    lateinit var pseudo_utilisateur: TextView
 
     var quantiteTotal = 0
+    var quantiteTotaleSirops = 0
+    var quantiteTotaleSofts = 0
+    var quantiteTotaleBieres = 0
+    var quantiteTotaleVins = 0
+    var quantiteTotaleClassiques = 0
+    var quantiteTotaleExtravagants = 0
+    var quantiteTotaleCafes = 0
+    var quantiteTotaleThes = 0
+
     var requestCount = 0
     val TOTAL_REQUESTS = 8
+    var dataLoaded = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +59,12 @@ class HomeFragment : Fragment() {
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        if (savedInstanceState != null) {
+            quantiteTotal = savedInstanceState.getInt("quantiteTotal", 0)
+            requestCount = savedInstanceState.getInt("requestCount", 0)
+            dataLoaded = savedInstanceState.getBoolean("dataLoaded", false)
+        }
 
         buttonHome2Sirops = root.findViewById(R.id.buttonHome2Sirops)
         buttonHome2Softs = root.findViewById(R.id.buttonHome2Softs)
@@ -67,8 +84,25 @@ class HomeFragment : Fragment() {
         quantiteExtravagants = root.findViewById(R.id.quantiteExtravagants)
         quantiteCafes = root.findViewById(R.id.quantiteCafes)
         quantiteThes = root.findViewById(R.id.quantiteThes)
+        pseudo_utilisateur = root.findViewById(R.id.pseudo_utilisateur)
 
-        displayQuantites()
+        if (SessionManager.pseudo != "") {
+            pseudo_utilisateur.text = SessionManager.pseudo
+        }
+
+        if (!dataLoaded) {
+            displayQuantites()
+        } else {
+            quantiteBoissons.text = "$quantiteTotal boissons dispos."
+            quantiteSirops.text = quantiteTotaleSirops.toString()
+            quantiteSofts.text = quantiteTotaleSofts.toString()
+            quantiteBieres.text = quantiteTotaleBieres.toString()
+            quantiteVins.text = quantiteTotaleVins.toString()
+            quantiteClassiques.text = quantiteTotaleClassiques.toString()
+            quantiteExtravagants.text = quantiteTotaleExtravagants.toString()
+            quantiteCafes.text = quantiteTotaleCafes.toString()
+            quantiteThes.text = quantiteTotaleThes.toString()
+        }
 
         return root
     }
@@ -76,7 +110,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Gestion des clics sur les boutons pour naviguer vers les différentes catégories de boissons
         buttonHome2Bieres.setOnClickListener {
             findNavController().popBackStack(R.id.homeFragment, false)
             findNavController().navigate(R.id.alcoolFragment)
@@ -129,6 +162,11 @@ class HomeFragment : Fragment() {
     }
 
     fun displayQuantites() {
+        dataLoaded = false
+
+        quantiteTotal = 0
+        requestCount = 0
+
         recupererSirops()
         recupererSofts()
         recupererBieres()
@@ -143,17 +181,20 @@ class HomeFragment : Fragment() {
         requestCount++
         if (requestCount == TOTAL_REQUESTS) {
             quantiteBoissons.text = "$quantiteTotal boissons dispos."
+            dataLoaded = true
         }
     }
 
     private fun recupererSirops() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
-        val stringRequest = StringRequest(Request.Method.GET, url,
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
             { response ->
                 val liste = response.split("|")
                 quantiteSirops.text = liste.size.toString()
+                quantiteTotaleSirops += liste.size
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -167,12 +208,13 @@ class HomeFragment : Fragment() {
 
     private fun recupererSofts() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
                 val liste = response.split("|")
                 quantiteSofts.text = liste.size.toString()
+                quantiteTotaleSofts += liste.size
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -186,12 +228,13 @@ class HomeFragment : Fragment() {
 
     private fun recupererBieres() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
                 val liste = response.split("|")
                 quantiteBieres.text = liste.size.toString()
+                quantiteTotaleBieres += liste.size
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -205,12 +248,13 @@ class HomeFragment : Fragment() {
 
     private fun recupererVins() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
                 val liste = response.split("|")
                 quantiteVins.text = liste.size.toString()
+                quantiteTotaleVins += liste.size
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -224,12 +268,13 @@ class HomeFragment : Fragment() {
 
     private fun recupererClassiques() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
                 val liste = response.split("|")
                 quantiteClassiques.text = liste.size.toString()
+                quantiteTotaleClassiques += liste.size
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -243,12 +288,13 @@ class HomeFragment : Fragment() {
 
     private fun recupererExtravagants() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
                 val liste = response.split("|")
                 quantiteExtravagants.text = liste.size.toString()
+                quantiteTotaleExtravagants += liste.size
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -262,12 +308,13 @@ class HomeFragment : Fragment() {
 
     private fun recupererCafes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
                 val liste = response.split("|")
                 quantiteCafes.text = liste.size.toString()
+                quantiteTotaleCafes += liste.size
                 quantiteTotal += liste.size
                 onRequestComplete()
             },
@@ -281,12 +328,13 @@ class HomeFragment : Fragment() {
 
     private fun recupererThes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
                 val liste = response.split("|")
                 quantiteThes.text = liste.size.toString()
+                quantiteTotaleThes += liste.size
                 quantiteTotal += liste.size
                 onRequestComplete()
             },

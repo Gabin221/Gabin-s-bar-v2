@@ -150,7 +150,7 @@ class AlcoolFragment : Fragment() {
 
     private fun recupererBieres() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -173,7 +173,7 @@ class AlcoolFragment : Fragment() {
 
     private fun recupererVins() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -196,7 +196,7 @@ class AlcoolFragment : Fragment() {
 
     private fun recupererClassiques() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -219,7 +219,7 @@ class AlcoolFragment : Fragment() {
 
     private fun recupererExtravagants() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "" // your url
+        val url = "use/your/url"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

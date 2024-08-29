@@ -37,4 +37,10 @@
     <string name="style_titre_carte">Style:</string>
     <string name="pays_titre_carte">Pays:</string>
     <string name="alcool_titre_carte">Alcool:</string>
+    <string name="erreur_saisie_mdp">Veuillez saisir un mot de passe.</string>
+    <string name="erreur_saisie_pseudo">Veuillez saisir un pseudo.</string>
+    <string name="titre_mot_de_passe">Mot de passe</string>
+    <string name="intitule_bouton_connexion">Se connecter</string>
+    <string name="titre_pseudo">Pseudo</string>
+    <string name="intitule_bouton_deconnexion">Se déconnecter</string>
 </resources>

@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary">#87CEFA</color>
     <color name="colorPrimary40Percent">#6687CEFA</color>
+    <color name="error">#FF0000</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="button_suggestions">#ADD8E6</color>
