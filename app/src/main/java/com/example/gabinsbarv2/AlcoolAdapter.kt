@@ -1,5 +1,7 @@
 package com.example.gabinsbarv2
 
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.material.progressindicator.CircularProgressIndicator
 import dataClassAlcool
 
 class AlcoolAdapter(private val boissonList: List<dataClassAlcool>) : RecyclerView.Adapter<AlcoolAdapter.AlcoolViewHolder>() {
@@ -15,6 +18,7 @@ class AlcoolAdapter(private val boissonList: List<dataClassAlcool>) : RecyclerVi
         val nomTextView: TextView = itemView.findViewById(R.id.nomAlcool)
         val imageView: ImageView = itemView.findViewById(R.id.imageAlcool)
         val quantiteTextView: TextView = itemView.findViewById(R.id.quantiteAlcoolAlcool)
+        val circularProgressIndicator: CircularProgressIndicator = itemView.findViewById(R.id.circularProgressIndicator)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlcoolViewHolder {
@@ -27,10 +31,33 @@ class AlcoolAdapter(private val boissonList: List<dataClassAlcool>) : RecyclerVi
         holder.nomTextView.text = boisson.nom
         holder.quantiteTextView.text = "Alcool: ${boisson.quantite_alcool}°"
 
-        // Utilisez une bibliothèque d'images comme Picasso ou Glide pour charger l'image à partir de l'URL
         Glide.with(holder.itemView.context)
             .load(boisson.imageUrl)
             .into(holder.imageView)
+
+        val handler = Handler(Looper.getMainLooper())
+        var progress = 0.0
+        val maxProgress = boisson.quantite_alcool.toDouble()
+        val increment = 0.1
+
+        holder.circularProgressIndicator.progress = progress.toInt()
+
+        val runnable = object : Runnable {
+            override fun run() {
+                if (progress < maxProgress) {
+                    holder.circularProgressIndicator.progress = progress.toInt()
+                    holder.quantiteTextView.text = "Alcool: ${String.format("%.1f", progress)}°"
+                    progress += increment
+                    handler.postDelayed(this, 10)
+                } else {
+                    holder.circularProgressIndicator.progress = maxProgress.toInt()
+                    holder.quantiteTextView.text = "Alcool: ${String.format("%.1f", maxProgress)}°"
+                    handler.removeCallbacks(this)
+                }
+            }
+        }
+
+        handler.post(runnable)
     }
 
     override fun getItemCount(): Int {

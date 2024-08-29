@@ -1,6 +1,40 @@
 <resources>
     <string name="app_name">Gabin\'s bar</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description_logo_app">Logo de l\'application</string>
+    <string name="description_tree_suggestions">Image montrant un arbre de recherche</string>
+    <string name="description_boussole_suggestions">Image montrant une boussole</string>
+    <string name="description_image_sirops">Image montrant un verre pour les sirops</string>
+    <string name="description_image_sodas">Image montrant une bouteille de soda</string>
+    <string name="description_image_bieres">Image montrant une bière</string>
+    <string name="description_image_item_bieres">Image montrant l\'image de la bière actuelle</string>
+    <string name="description_image_item_alcool_fort">Image montrant l\'image de l\'alcool fort actuel</string>
+    <string name="description_image_item_sirops_sodas">Image montrant l\'image du sirop ou du soda actuel</string>
+    <string name="description_image_item_cafe_the">Image montrant l\'image du café ou du thé actuel</string>
+    <string name="description_image_item_vins">Image montrant l\'image du vin actuel</string>
+    <string name="description_image_vins">Image montrant un verre de vin</string>
+    <string name="description_image_classiques">Image montrant un verre pour les classiques</string>
+    <string name="description_image_extravagants">Image montrant un verre pour les extravagants</string>
+    <string name="description_image_cafes">Image montrant une tasse de café</string>
+    <string name="description_image_thes">Image montrant une tasse de thé</string>
+    <string name="nom_item_home">Accueil</string>
+    <string name="nom_item_softs">Softs</string>
+    <string name="nom_item_alcool">Alcool</string>
+    <string name="nom_item_panier">Panier</string>
+    <string name="nom_item_compte">Compte</string>
+    <string name="nom_item_suggestions">Suggestions</string>
+    <string name="valeur_par_defaut_pseudo">Inconnu</string>
+    <string name="pour_les_indecis">Pour les indécis</string>
+    <string name="nom_bouton_sirops">Sirops</string>
+    <string name="nom_bouton_sodas">Sodas</string>
+    <string name="nom_bouton_bieres">Bières</string>
+    <string name="nom_bouton_vins">Vins</string>
+    <string name="nom_bouton_classiques">Classiques</string>
+    <string name="nom_bouton_extravagants">Extravagants</string>
+    <string name="nom_bouton_cafes">Cafés</string>
+    <string name="nom_bouton_thes">Thés</string>
+    <string name="suggestions_des_softs">Suggestion des softs</string>
+    <string name="suggestions_des_alcool">Suggestion des alcools</string>
+    <string name="style_titre_carte">Style:</string>
+    <string name="pays_titre_carte">Pays:</string>
+    <string name="alcool_titre_carte">Alcool:</string>
 </resources>

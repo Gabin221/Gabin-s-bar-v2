@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:padding="16dp"
     android:layout_marginBottom="10dp"
-    android:layout_marginRight="20dp"
+    android:layout_marginEnd="20dp"
     android:background="@drawable/rectangle_button">
 
     <LinearLayout
@@ -38,6 +39,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="false"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -49,6 +51,7 @@
                     android:id="@+id/imageBieres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_item_bieres"
                     android:layout_gravity="center"
                     android:layout_marginEnd="16dp" />
 
@@ -61,26 +64,93 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/styleBieres"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/paysBieres"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="@string/style_titre_carte"
+                        android:textStyle="bold"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/quantiteAlcoolBieres"
+                    <TextView
+                        android:id="@+id/styleBieres"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="10dp"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="@string/pays_titre_carte"
+                        android:textStyle="bold"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/paysBieres"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="10dp"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/black"
+                        android:text="@string/alcool_titre_carte"
+                        android:textStyle="bold"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp">
+
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:id="@+id/circularProgressIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:indeterminate="false"
+                            app:indicatorColor="@color/colorPrimary"
+                            android:layout_centerInParent="true"
+                            app:trackColor="@color/colorPrimary40Percent"
+                            app:trackThickness="4dp" />
+
+                        <TextView
+                            android:id="@+id/quantiteAlcoolBieres"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 

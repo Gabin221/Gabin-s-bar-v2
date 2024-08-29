@@ -5,14 +5,15 @@
     android:layout_height="match_parent"
     android:background="@color/background_fragments"
     android:orientation="vertical"
-    android:paddingLeft="20dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="0dp"
     android:paddingBottom="65dp"
     tools:context=".fragments.AlcoolFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Alcool"
+        android:text="@string/nom_item_alcool"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="25sp"
@@ -47,6 +48,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_bieres"
                     android:src="@drawable/ic_baseline_bieres_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -54,7 +56,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bières"
+                    android:text="@string/nom_bouton_bieres"
                     android:textStyle="bold"
                     android:textColor="@color/buttons_bieres_text"
                     android:layout_marginBottom="5dp"
@@ -75,6 +77,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_vins"
                     android:src="@drawable/ic_baseline_vins_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -82,7 +85,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Vins"
+                    android:text="@string/nom_bouton_vins"
                     android:textStyle="bold"
                     android:textColor="@color/buttons_vins_text"
                     android:layout_marginBottom="5dp"
@@ -103,6 +106,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_classiques"
                     android:src="@drawable/ic_baseline_classiques_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -110,7 +114,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Classiques"
+                    android:text="@string/nom_bouton_classiques"
                     android:textStyle="bold"
                     android:textColor="@color/buttons_classiques_text"
                     android:layout_marginBottom="5dp"
@@ -131,6 +135,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_extravagants"
                     android:src="@drawable/ic_baseline_extravagants_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -138,7 +143,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Extravagants"
+                    android:text="@string/nom_bouton_extravagants"
                     android:textStyle="bold"
                     android:textColor="@color/buttons_extravagants_text"
                     android:layout_marginBottom="5dp"

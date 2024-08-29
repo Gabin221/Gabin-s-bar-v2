@@ -8,37 +8,37 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.gabinsbarv2.fragments.HomeFragment"
-        android:label="Accueil"
+        android:label="@string/nom_item_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/softsFragment"
         android:name="com.example.gabinsbarv2.fragments.SoftsFragment"
-        android:label="Softs"
+        android:label="@string/nom_item_softs"
         tools:layout="@layout/fragment_softs" />
 
     <fragment
         android:id="@+id/alcoolFragment"
         android:name="com.example.gabinsbarv2.fragments.AlcoolFragment"
-        android:label="Alcool"
+        android:label="@string/nom_item_alcool"
         tools:layout="@layout/fragment_alcool" />
 
     <fragment
         android:id="@+id/panierFragment"
         android:name="com.example.gabinsbarv2.fragments.PanierFragment"
-        android:label="Panier"
+        android:label="@string/nom_item_panier"
         tools:layout="@layout/fragment_panier" />
 
     <fragment
         android:id="@+id/compteFragment"
         android:name="com.example.gabinsbarv2.fragments.CompteFragment"
-        android:label="Comptes"
+        android:label="@string/nom_item_compte"
         tools:layout="@layout/fragment_compte" />
 
     <fragment
         android:id="@+id/suggestionsFragment"
         android:name="com.example.gabinsbarv2.fragments.SuggestionsFragment"
-        android:label="Suggestions"
+        android:label="@string/nom_item_suggestions"
         tools:layout="@layout/fragment_suggestions" />
 
 </navigation>

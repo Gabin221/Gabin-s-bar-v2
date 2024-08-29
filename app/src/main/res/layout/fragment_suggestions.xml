@@ -6,14 +6,15 @@
     android:background="@color/background_fragments"
     android:orientation="vertical"
     android:paddingBottom="65dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="0dp"
     android:gravity="center_vertical"
     tools:context=".fragments.SuggestionsFragment">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="Suggestions des softs"
+        android:text="@string/suggestions_des_softs"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
@@ -29,6 +30,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp">
@@ -52,6 +54,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_sirops"
                     android:src="@drawable/ic_baseline_sirops_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -68,7 +71,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sirops"
+                android:text="@string/nom_bouton_sirops"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_sirops_text"
@@ -105,6 +108,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_sodas"
                     android:src="@drawable/ic_baseline_sodas_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -121,7 +125,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Softs"
+                android:text="@string/nom_bouton_sodas"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_softs_text"
@@ -144,8 +148,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="Suggestions des alcool"
+        android:text="@string/suggestions_des_alcool"
         android:textSize="20sp"
         android:layout_marginTop="50dp"
         android:textStyle="bold"
@@ -161,6 +164,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp">
@@ -184,6 +188,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_bieres"
                     android:src="@drawable/ic_baseline_bieres_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -200,7 +205,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bières"
+                android:text="@string/nom_bouton_bieres"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_bieres_text"
@@ -246,6 +251,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_vins"
                     android:src="@drawable/ic_baseline_vins_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -262,7 +268,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Vins"
+                android:text="@string/nom_bouton_vins"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_vins_text"
@@ -284,6 +290,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp">
@@ -307,6 +314,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_classiques"
                     android:src="@drawable/ic_baseline_classiques_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -323,7 +331,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Classiques"
+                android:text="@string/nom_bouton_classiques"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_classiques_text"
@@ -360,6 +368,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_extravagants"
                     android:src="@drawable/ic_baseline_extravagants_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -376,7 +385,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Extravagants"
+                android:text="@string/nom_bouton_extravagants"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_extravagants_text"

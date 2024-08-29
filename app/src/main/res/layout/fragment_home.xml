@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="Inconnu"
+        android:text="@string/valeur_par_defaut_pseudo"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
@@ -45,7 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingStart="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="0dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -56,6 +57,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:contentDescription="@string/description_boussole_suggestions"
                     android:src="@drawable/ic_baseline_compass_24"
                     android:layout_marginEnd="5dp"
                     android:layout_gravity="center"/>
@@ -63,7 +65,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Suggestions"
+                    android:text="@string/nom_item_suggestions"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -75,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="0.5"
-                android:text="Pour les indécis"
+                android:text="@string/pour_les_indecis"
                 android:gravity="center"
                 android:textAlignment="gravity"
                 android:textColor="@color/black"/>
@@ -87,6 +89,7 @@
             android:layout_height="50dp"
             android:layout_weight="0.8"
             android:layout_marginVertical="10dp"
+            android:contentDescription="@string/description_tree_suggestions"
             android:src="@drawable/ic_baseline_tree_24" />
 
     </LinearLayout>
@@ -94,6 +97,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp">
@@ -118,6 +122,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_sirops"
                     android:src="@drawable/ic_baseline_sirops_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -135,7 +140,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sirops"
+                android:text="@string/nom_bouton_sirops"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_sirops_text"
                 android:layout_marginBottom="5dp"
@@ -163,6 +168,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_sodas"
                     android:src="@drawable/ic_baseline_sodas_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -171,7 +177,6 @@
                     android:id="@+id/quantiteSofts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3"
                     android:textStyle="bold"
                     android:layout_marginStart="2dp"
                     android:textColor="@color/buttons_softs_text"/>
@@ -181,7 +186,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Softs"
+                android:text="@string/nom_bouton_sodas"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_softs_text"
@@ -209,6 +214,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_bieres"
                     android:src="@drawable/ic_baseline_bieres_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -226,7 +232,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bières"
+                android:text="@string/nom_bouton_bieres"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_bieres_text"
@@ -263,6 +269,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_vins"
                     android:src="@drawable/ic_baseline_vins_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -280,7 +287,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Vins"
+                android:text="@string/nom_bouton_vins"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_vins_text"
                 android:layout_marginBottom="5dp"
@@ -308,6 +315,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_classiques"
                     android:src="@drawable/ic_baseline_classiques_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -325,7 +333,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Classiques"
+                android:text="@string/nom_bouton_classiques"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_classiques_text"
@@ -353,6 +361,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_extravagants"
                     android:src="@drawable/ic_baseline_extravagants_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -370,7 +379,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Extravagants"
+                android:text="@string/nom_bouton_extravagants"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_extravagants_text"
@@ -407,6 +416,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_cafes"
                     android:src="@drawable/ic_baseline_cafes_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -424,7 +434,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cafés"
+                android:text="@string/nom_bouton_cafes"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_cafes_text"
@@ -452,6 +462,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_image_thes"
                     android:src="@drawable/ic_baseline_thes_24"
                     android:layout_marginEnd="2dp"
                     android:layout_gravity="center"/>
@@ -469,7 +480,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thés"
+                android:text="@string/nom_bouton_thes"
                 android:layout_marginBottom="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/buttons_thes_text"

@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_marginBottom="10dp"
-    android:layout_marginRight="20dp"
+    android:layout_marginEnd="20dp"
     android:background="@drawable/rectangle_button">
 
     <TextView
@@ -19,8 +19,9 @@
     <ImageView
         android:id="@+id/imageSofts"
         android:layout_width="200dp"
-        android:layout_gravity="center"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/description_image_item_cafe_the"
+        android:layout_gravity="center"
         android:layout_marginEnd="16dp" />
 
 </LinearLayout>
