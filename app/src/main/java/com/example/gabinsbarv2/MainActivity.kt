@@ -1,9 +1,8 @@
 package com.example.gabinsbarv2
 
+import PanierManager.monPanier
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,7 +10,6 @@ import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.gabinsbarv2.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         val navBar  = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        navBar.getOrCreateBadge(R.id.panierFragment).number = 0
+        navBar.getOrCreateBadge(R.id.panierFragment).number = monPanier.size
 
         setupActionBarWithNavController(this, navController, appBarConfiguration)
         binding.bottomNavigationView.setupWithNavController(navController)

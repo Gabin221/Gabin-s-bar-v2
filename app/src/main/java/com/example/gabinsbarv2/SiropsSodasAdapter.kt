@@ -1,10 +1,12 @@
 package com.example.gabinsbarv2
 
+import PanierManager.monPanier
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dataClassSiropsSodas
@@ -24,10 +26,13 @@ class SiropsSodasAdapter(private val boissonList: List<dataClassSiropsSodas>) : 
 
     override fun onBindViewHolder(holder: SiropsSodasViewHolder, position: Int) {
         val boisson = boissonList[position]
+        holder.itemView.setOnClickListener {
+            monPanier.add(boisson.nom)
+            Toast.makeText(holder.itemView.context, "${boisson.nom} ajoutée au panier", Toast.LENGTH_SHORT).show()
+        }
         holder.nomTextView.text = boisson.nom
         holder.caloriesView.text = "Calories: ${boisson.calories} Kcal"
 
-        // Utilisez une bibliothèque d'images comme Picasso ou Glide pour charger l'image à partir de l'URL
         Glide.with(holder.itemView.context)
             .load(boisson.imageUrl)
             .into(holder.imageView)

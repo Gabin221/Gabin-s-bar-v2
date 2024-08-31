@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,13 +7,23 @@
     android:paddingStart="20dp"
     android:paddingEnd="0dp"
     android:paddingBottom="65dp"
+    android:orientation="vertical"
     tools:context=".fragments.PanierFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Panier" />
+        android:layout_height="wrap_content"
+        android:text="Panier"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/listeBoissons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="liste"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
