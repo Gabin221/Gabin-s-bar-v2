@@ -25,7 +25,6 @@ class BoissonAdapter(private val boissonList: List<dataClassSofts>) : RecyclerVi
         val boisson = boissonList[position]
         holder.nomTextView.text = boisson.nom
 
-        // Utilisez une bibliothèque d'images comme Picasso ou Glide pour charger l'image à partir de l'URL
         Glide.with(holder.itemView.context)
             .load(boisson.imageUrl)
             .into(holder.imageView)
