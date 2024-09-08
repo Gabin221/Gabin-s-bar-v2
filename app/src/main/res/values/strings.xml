@@ -22,7 +22,7 @@
     <string name="nom_item_panier">Panier</string>
     <string name="nom_item_compte">Compte</string>
     <string name="nom_item_suggestions">Suggestions</string>
-    <string name="valeur_par_defaut_pseudo">Inconnu</string>
+    <string name="valeur_par_defaut_pseudo">Vous n\'êtes pas connecté</string>
     <string name="pour_les_indecis">Pour les indécis</string>
     <string name="nom_bouton_sirops">Sirops</string>
     <string name="nom_bouton_sodas">Sodas</string>
@@ -43,4 +43,5 @@
     <string name="intitule_bouton_connexion">Se connecter</string>
     <string name="titre_pseudo">Pseudo</string>
     <string name="intitule_bouton_deconnexion">Se déconnecter</string>
+    <string name="supprimer">❌</string>
 </resources>
