@@ -78,7 +78,7 @@ class CompteFragment : Fragment() {
     }
 
     private fun sendLoginRequest(pseudo: String, hashedPassword: String) {
-        val url = "https://gabinserrurot.fr/Api_gabinsbar/connexionUtilisateur.php"
+        val url = "use/your/url"
         val queue = Volley.newRequestQueue(requireContext())
 
         val urlWithParams = "$url?pseudo=$pseudo&mot_de_passe=$hashedPassword"
