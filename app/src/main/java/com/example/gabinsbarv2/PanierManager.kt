@@ -4,11 +4,9 @@ import androidx.lifecycle.MutableLiveData
 object PanierManager {
     val monPanier: MutableList<String> = mutableListOf()
 
-    // LiveData qui représente la taille du panier
     val panierSizeLiveData: MutableLiveData<Int> = MutableLiveData(0) // Initialisé à 0
 
     init {
-        // S'assure que le panier est toujours synchronisé au démarrage
         panierSizeLiveData.value = monPanier.size
     }
 
@@ -32,7 +30,6 @@ object PanierManager {
         Log.d("PanierManager", "Panier vidé, Taille du panier : ${monPanier.size}")
     }
 
-    // Optionnel : fonction pour vérifier la taille du panier
     fun getPanierSize(): Int {
         return monPanier.size
     }

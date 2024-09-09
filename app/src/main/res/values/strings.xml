@@ -44,4 +44,6 @@
     <string name="titre_pseudo">Pseudo</string>
     <string name="intitule_bouton_deconnexion">Se déconnecter</string>
     <string name="supprimer">❌</string>
+    <string name="type_titre_carte">"Type: "</string>
+    <string name="region_titre_carte">"Région: "</string>
 </resources>

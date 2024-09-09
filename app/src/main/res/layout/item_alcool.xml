@@ -55,24 +55,47 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"><LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
                 <TextView
-                    android:id="@+id/quantiteAlcoolAlcool"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:textColor="@color/black"
+                    android:text="@string/alcool_titre_carte"
+                    android:textStyle="bold"
                     android:textSize="18sp" />
 
-                <com.google.android.material.progressindicator.CircularProgressIndicator
-                    android:id="@+id/circularProgressIndicator"
+                <RelativeLayout
+                    android:id="@+id/main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:indeterminate="false"
-                    app:trackColor="@color/colorPrimary40Percent"
-                    app:indicatorColor="@color/colorPrimary"
-                    app:trackThickness="4dp"
-                    android:layout_gravity="center" />
+                    android:layout_marginStart="8dp">
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/circularProgressIndicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:indeterminate="false"
+                        app:indicatorColor="@color/colorPrimary"
+                        android:layout_centerInParent="true"
+                        app:trackColor="@color/colorPrimary40Percent"
+                        app:trackThickness="4dp" />
+
+                    <TextView
+                        android:id="@+id/quantiteAlcoolAlcool"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
             </LinearLayout>
 

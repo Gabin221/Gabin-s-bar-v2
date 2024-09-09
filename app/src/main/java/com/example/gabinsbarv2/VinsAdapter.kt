@@ -1,5 +1,6 @@
 package com.example.gabinsbarv2
 
+import PanierManager.ajouterElement
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.progressindicator.CircularProgressIndicator
@@ -30,10 +32,13 @@ class VinsAdapter(private val boissonList: List<dataClassVins>) : RecyclerView.A
 
     override fun onBindViewHolder(holder: VinsViewHolder, position: Int) {
         val boisson = boissonList[position]
+        holder.itemView.setOnClickListener {
+            ajouterElement(boisson.nom)
+            Toast.makeText(holder.itemView.context, "${boisson.nom} ajoutée au panier", Toast.LENGTH_SHORT).show()
+        }
         holder.nomTextView.text = boisson.nom
-        holder.quantiteTextView.text = "Alcool: ${boisson.quantite_alcool}°"
-        holder.regionTextView.text = "Région: ${boisson.region}"
-        holder.styleTextView.text = "Type: ${boisson.style}"
+        holder.regionTextView.text = boisson.region
+        holder.styleTextView.text = boisson.style
 
         Glide.with(holder.itemView.context)
             .load(boisson.imageUrl)
@@ -50,12 +55,12 @@ class VinsAdapter(private val boissonList: List<dataClassVins>) : RecyclerView.A
             override fun run() {
                 if (progress < maxProgress) {
                     holder.circularProgressIndicator.progress = progress.toInt()
-                    holder.quantiteTextView.text = "Alcool: ${String.format("%.1f", progress)}°"
+                    holder.quantiteTextView.text = "${String.format("%.1f", progress)}°"
                     progress += increment
                     handler.postDelayed(this, 10)
                 } else {
                     holder.circularProgressIndicator.progress = maxProgress.toInt()
-                    holder.quantiteTextView.text = "Alcool: ${String.format("%.1f", maxProgress)}°"
+                    holder.quantiteTextView.text = "${String.format("%.1f", maxProgress)}°"
                     handler.removeCallbacks(this)
                 }
             }

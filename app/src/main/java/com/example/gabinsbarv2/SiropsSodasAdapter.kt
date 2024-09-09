@@ -1,5 +1,6 @@
 package com.example.gabinsbarv2
 
+import PanierManager.ajouterElement
 import PanierManager.monPanier
 import android.view.LayoutInflater
 import android.view.View
@@ -27,7 +28,7 @@ class SiropsSodasAdapter(private val boissonList: List<dataClassSiropsSodas>) : 
     override fun onBindViewHolder(holder: SiropsSodasViewHolder, position: Int) {
         val boisson = boissonList[position]
         holder.itemView.setOnClickListener {
-            monPanier.add(boisson.nom)
+            ajouterElement(boisson.nom)
             Toast.makeText(holder.itemView.context, "${boisson.nom} ajoutée au panier", Toast.LENGTH_SHORT).show()
         }
         holder.nomTextView.text = boisson.nom

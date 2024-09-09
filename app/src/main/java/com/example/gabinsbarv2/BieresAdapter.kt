@@ -1,5 +1,6 @@
 package com.example.gabinsbarv2
 
+import PanierManager.ajouterElement
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.progressindicator.CircularProgressIndicator
@@ -31,6 +33,10 @@ class BieresAdapter(private val boissonList: List<dataClassBieres>) : RecyclerVi
 
     override fun onBindViewHolder(holder: BieresViewHolder, position: Int) {
         val boisson = boissonList[position]
+        holder.itemView.setOnClickListener {
+            ajouterElement(boisson.nom)
+            Toast.makeText(holder.itemView.context, "${boisson.nom} ajoutée au panier", Toast.LENGTH_SHORT).show()
+        }
         holder.nomTextView.text = boisson.nom
         holder.paysView.text = boisson.pays
         holder.styleView.text = boisson.style
