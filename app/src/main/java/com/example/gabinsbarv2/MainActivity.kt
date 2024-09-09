@@ -1,9 +1,7 @@
 package com.example.gabinsbarv2
 
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -38,15 +36,11 @@ class MainActivity : AppCompatActivity() {
         val navBar = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val panierBadge = navBar.getOrCreateBadge(R.id.panierFragment)
 
-        // Observer les changements dans le panier
-        PanierManager.panierSizeLiveData.observe(this, Observer { newSize ->
-            Log.d("MainActivity", "Taille du panier reçue : $newSize")
-            panierBadge.number = newSize // Mettre à jour le badge avec la nouvelle taille du panier
-        })
+        PanierManager.panierSizeLiveData.observe(this) { newSize ->
+            panierBadge.number = newSize
+        }
 
-        // Initialiser le badge avec la taille actuelle du panier au démarrage
         val currentSize = PanierManager.getPanierSize()
-        Log.d("MainActivity", "Taille initiale du panier : $currentSize")
         panierBadge.number = currentSize
 
         setupActionBarWithNavController(this, navController, appBarConfiguration)

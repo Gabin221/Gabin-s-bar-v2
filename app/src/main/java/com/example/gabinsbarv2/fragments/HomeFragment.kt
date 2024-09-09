@@ -19,14 +19,6 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    lateinit var buttonHome2Sirops: LinearLayout
-    lateinit var buttonHome2Softs: LinearLayout
-    lateinit var buttonHome2Bieres: LinearLayout
-    lateinit var buttonHome2Vins: LinearLayout
-    lateinit var buttonHome2Classiques: LinearLayout
-    lateinit var buttonHome2Extravagants: LinearLayout
-    lateinit var buttonHome2Cafes: LinearLayout
-    lateinit var buttonHome2Thes: LinearLayout
     lateinit var buttonHome2Suggestions: LinearLayout
     lateinit var quantiteBoissons: TextView
     lateinit var quantiteSirops: TextView
@@ -66,14 +58,6 @@ class HomeFragment : Fragment() {
             dataLoaded = savedInstanceState.getBoolean("dataLoaded", false)
         }
 
-        buttonHome2Sirops = root.findViewById(R.id.buttonHome2Sirops)
-        buttonHome2Softs = root.findViewById(R.id.buttonHome2Softs)
-        buttonHome2Bieres = root.findViewById(R.id.buttonHome2Bieres)
-        buttonHome2Vins = root.findViewById(R.id.buttonHome2Vins)
-        buttonHome2Classiques = root.findViewById(R.id.buttonHome2Classiques)
-        buttonHome2Extravagants = root.findViewById(R.id.buttonHome2Extravagants)
-        buttonHome2Cafes = root.findViewById(R.id.buttonHome2Cafes)
-        buttonHome2Thes = root.findViewById(R.id.buttonHome2Thes)
         buttonHome2Suggestions = root.findViewById(R.id.buttonHome2Suggestions)
         quantiteBoissons = root.findViewById(R.id.quantiteBoissons)
         quantiteSirops = root.findViewById(R.id.quantiteSirops)
@@ -109,47 +93,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        buttonHome2Bieres.setOnClickListener {
-            findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.alcoolFragment)
-        }
-
-        buttonHome2Vins.setOnClickListener {
-            findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.alcoolFragment)
-        }
-
-        buttonHome2Classiques.setOnClickListener {
-            findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.alcoolFragment)
-        }
-
-        buttonHome2Extravagants.setOnClickListener {
-            findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.alcoolFragment)
-        }
-
-        buttonHome2Sirops.setOnClickListener {
-            findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.softsFragment)
-        }
-
-        buttonHome2Softs.setOnClickListener {
-            findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.softsFragment)
-        }
-
-        buttonHome2Cafes.setOnClickListener {
-            findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.softsFragment)
-        }
-
-        buttonHome2Thes.setOnClickListener {
-            findNavController().popBackStack(R.id.homeFragment, false)
-            findNavController().navigate(R.id.softsFragment)
-        }
-
         buttonHome2Suggestions.setOnClickListener {
             findNavController().popBackStack(R.id.homeFragment, false)
             findNavController().navigate(R.id.suggestionsFragment)

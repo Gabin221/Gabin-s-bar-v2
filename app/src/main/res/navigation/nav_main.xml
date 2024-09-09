@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/suggestionsFragment"
+        android:name="com.example.gabinsbarv2.fragments.SuggestionsFragment"
+        android:label="@string/nom_item_suggestions"
+        tools:layout="@layout/fragment_suggestions" />
+
+    <fragment
         android:id="@+id/softsFragment"
         android:name="com.example.gabinsbarv2.fragments.SoftsFragment"
         android:label="@string/nom_item_softs"
@@ -34,11 +40,5 @@
         android:name="com.example.gabinsbarv2.fragments.CompteFragment"
         android:label="@string/nom_item_compte"
         tools:layout="@layout/fragment_compte" />
-
-    <fragment
-        android:id="@+id/suggestionsFragment"
-        android:name="com.example.gabinsbarv2.fragments.SuggestionsFragment"
-        android:label="@string/nom_item_suggestions"
-        tools:layout="@layout/fragment_suggestions" />
 
 </navigation>

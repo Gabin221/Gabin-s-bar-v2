@@ -64,9 +64,13 @@ class CompteFragment : Fragment() {
         }
 
         buttonLogout.setOnClickListener {
-            SessionManager.isLoggedIn = false
-            SessionManager.pseudo = ""
-            Toast.makeText(requireContext(), "Vous êtes déconnecté.", Toast.LENGTH_SHORT).show()
+            if (SessionManager.isLoggedIn) {
+                SessionManager.isLoggedIn = false
+                SessionManager.pseudo = ""
+                Toast.makeText(requireContext(), "Vous êtes déconnecté.", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Vous n'étiez pas connecté.", Toast.LENGTH_SHORT).show()
+            }
         }
 
         return root

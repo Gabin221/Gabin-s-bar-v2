@@ -19,7 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_main" />
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
@@ -35,6 +34,5 @@
         app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottom" />
-    <!--app:itemRippleColor="@android:color/darker_gray"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

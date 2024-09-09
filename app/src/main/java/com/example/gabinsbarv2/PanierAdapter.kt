@@ -31,10 +31,4 @@ class PanierAdapter(private val boissonList: MutableList<String>, private val on
     override fun getItemCount(): Int {
         return boissonList.size
     }
-
-    fun supprimerElement(position: Int) {
-        boissonList.removeAt(position)
-        notifyItemRemoved(position)
-        notifyItemRangeChanged(position, boissonList.size)
-    }
 }
