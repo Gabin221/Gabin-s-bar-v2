@@ -1,10 +1,12 @@
 package com.example.gabinsbarv2.fragments
 
+import PanierManager.ajouterElement
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.android.volley.Request
@@ -33,6 +35,13 @@ class SuggestionsFragment : Fragment() {
     private val boissonsListClassiques = mutableListOf<String>()
     private val boissonsListExtravagants = mutableListOf<String>()
 
+    lateinit var buttonSuggestionsSirops: LinearLayout
+    lateinit var buttonSuggestionsSodas: LinearLayout
+    lateinit var buttonSuggestionsBieres: LinearLayout
+    lateinit var buttonSuggestionsVins: LinearLayout
+    lateinit var buttonSuggestionsClassiques: LinearLayout
+    lateinit var buttonSuggestionsExtravagants: LinearLayout
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -49,6 +58,38 @@ class SuggestionsFragment : Fragment() {
         typeBiere = root.findViewById(R.id.typeBiere)
 
         displayQuantites()
+
+        buttonSuggestionsSirops = root.findViewById(R.id.buttonSuggestionsSirops)
+        buttonSuggestionsSodas = root.findViewById(R.id.buttonSuggestionsSodas)
+        buttonSuggestionsBieres = root.findViewById(R.id.buttonSuggestionsBieres)
+        buttonSuggestionsVins = root.findViewById(R.id.buttonSuggestionsVins)
+        buttonSuggestionsClassiques = root.findViewById(R.id.buttonSuggestionsClassiques)
+        buttonSuggestionsExtravagants = root.findViewById(R.id.buttonSuggestionsExtravagants)
+
+        buttonSuggestionsSirops.setOnClickListener {
+            ajouterElement(suggestionSirops.text.toString())
+            Toast.makeText(requireContext(), "${suggestionSirops.text} ajouté au panier", Toast.LENGTH_SHORT).show()
+        }
+        buttonSuggestionsSodas.setOnClickListener {
+            ajouterElement(suggestionSofts.text.toString())
+            Toast.makeText(requireContext(), "${suggestionSofts.text} ajouté au panier", Toast.LENGTH_SHORT).show()
+        }
+        buttonSuggestionsBieres.setOnClickListener {
+            ajouterElement(suggestionBieres.text.toString())
+            Toast.makeText(requireContext(), "${suggestionBieres.text} ajoutée au panier", Toast.LENGTH_SHORT).show()
+        }
+        buttonSuggestionsVins.setOnClickListener {
+            ajouterElement(suggestionVins.text.toString())
+            Toast.makeText(requireContext(), "${suggestionVins.text} ajouté au panier", Toast.LENGTH_SHORT).show()
+        }
+        buttonSuggestionsClassiques.setOnClickListener {
+            ajouterElement(suggestionClassiques.text.toString())
+            Toast.makeText(requireContext(), "${suggestionClassiques.text} ajouté au panier", Toast.LENGTH_SHORT).show()
+        }
+        buttonSuggestionsExtravagants.setOnClickListener {
+            ajouterElement(suggestionExtravagants.text.toString())
+            Toast.makeText(requireContext(), "${suggestionExtravagants.text} ajouté au panier", Toast.LENGTH_SHORT).show()
+        }
 
         return root
     }

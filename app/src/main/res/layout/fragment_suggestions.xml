@@ -33,6 +33,7 @@
         android:layout_marginTop="10dp">
 
         <LinearLayout
+            android:id="@+id/buttonSuggestionsSirops"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.4"
@@ -87,6 +88,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/buttonSuggestionsSodas"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.4"
@@ -165,6 +167,7 @@
         android:layout_marginTop="10dp">
 
         <LinearLayout
+            android:id="@+id/buttonSuggestionsBieres"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.4"
@@ -228,6 +231,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/buttonSuggestionsVins"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.4"
@@ -290,6 +294,7 @@
         android:layout_marginTop="10dp">
 
         <LinearLayout
+            android:id="@+id/buttonSuggestionsClassiques"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.4"
@@ -344,6 +349,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/buttonSuggestionsExtravagants"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.4"

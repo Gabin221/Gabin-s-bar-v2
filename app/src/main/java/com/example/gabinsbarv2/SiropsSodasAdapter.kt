@@ -29,7 +29,7 @@ class SiropsSodasAdapter(private val boissonList: List<dataClassSiropsSodas>) : 
         val boisson = boissonList[position]
         holder.itemView.setOnClickListener {
             ajouterElement(boisson.nom)
-            Toast.makeText(holder.itemView.context, "${boisson.nom} ajoutée au panier", Toast.LENGTH_SHORT).show()
+            Toast.makeText(holder.itemView.context, "${boisson.nom} ajouté au panier", Toast.LENGTH_SHORT).show()
         }
         holder.nomTextView.text = boisson.nom
         holder.caloriesView.text = "Calories: ${boisson.calories} Kcal"
