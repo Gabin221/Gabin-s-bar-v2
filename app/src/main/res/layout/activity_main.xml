@@ -32,9 +32,9 @@
         app:itemIconSize="30dp"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
-        app:itemRippleColor="@android:color/darker_gray"
         app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottom" />
+    <!--app:itemRippleColor="@android:color/darker_gray"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

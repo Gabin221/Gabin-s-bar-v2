@@ -24,7 +24,8 @@
     <color name="buttons_thes">#40E0D0</color>
     <color name="buttons_thes_text">#003366</color>
     <color name="item_menu_default">#9E9E9E</color>
-    <color name="background_fragments">#F0F0F0</color>
+    <color name="background_menu">#F0F0F0</color>
+    <color name="background_fragments">#FFFFFF</color>
     <color name="button_validation">#008B00</color>
     <color name="button_vider_panier">#AB0000</color>
 </resources>
