@@ -86,6 +86,34 @@ class AlcoolFragment : Fragment() {
         boissonAdapterExtravagants = AlcoolAdapter(boissonsListExtravagants)
         recyclerViewExtravagants.adapter = boissonAdapterExtravagants
 
+        val category = arguments?.getString("category")
+        when (category) {
+            "Bieres" -> {
+                contenuBieres.visibility = View.VISIBLE
+                contenuVins.visibility = View.GONE
+                contenuClassiques.visibility = View.GONE
+                contenuExtravagants.visibility = View.GONE
+            }
+            "Vins" -> {
+                contenuBieres.visibility = View.GONE
+                contenuVins.visibility = View.VISIBLE
+                contenuClassiques.visibility = View.GONE
+                contenuExtravagants.visibility = View.GONE
+            }
+            "Classiques" -> {
+                contenuBieres.visibility = View.GONE
+                contenuVins.visibility = View.GONE
+                contenuClassiques.visibility = View.VISIBLE
+                contenuExtravagants.visibility = View.GONE
+            }
+            "Extravagants" -> {
+                contenuBieres.visibility = View.GONE
+                contenuVins.visibility = View.GONE
+                contenuClassiques.visibility = View.GONE
+                contenuExtravagants.visibility = View.VISIBLE
+            }
+        }
+
         displayQuantites()
         gestionClicks()
 

@@ -20,6 +20,14 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     lateinit var buttonHome2Suggestions: LinearLayout
+    lateinit var buttonHome2Sirops: LinearLayout
+    lateinit var buttonHome2Softs: LinearLayout
+    lateinit var buttonHome2Bieres: LinearLayout
+    lateinit var buttonHome2Vins: LinearLayout
+    lateinit var buttonHome2Classiques: LinearLayout
+    lateinit var buttonHome2Extravagants: LinearLayout
+    lateinit var buttonHome2Cafes: LinearLayout
+    lateinit var buttonHome2Thes: LinearLayout
     lateinit var quantiteBoissons: TextView
     lateinit var quantiteSirops: TextView
     lateinit var quantiteSofts: TextView
@@ -59,6 +67,14 @@ class HomeFragment : Fragment() {
         }
 
         buttonHome2Suggestions = root.findViewById(R.id.buttonHome2Suggestions)
+        buttonHome2Sirops = root.findViewById(R.id.buttonHome2Sirops)
+        buttonHome2Softs = root.findViewById(R.id.buttonHome2Softs)
+        buttonHome2Bieres = root.findViewById(R.id.buttonHome2Bieres)
+        buttonHome2Vins = root.findViewById(R.id.buttonHome2Vins)
+        buttonHome2Classiques = root.findViewById(R.id.buttonHome2Classiques)
+        buttonHome2Extravagants = root.findViewById(R.id.buttonHome2Extravagants)
+        buttonHome2Cafes = root.findViewById(R.id.buttonHome2Cafes)
+        buttonHome2Thes = root.findViewById(R.id.buttonHome2Thes)
         quantiteBoissons = root.findViewById(R.id.quantiteBoissons)
         quantiteSirops = root.findViewById(R.id.quantiteSirops)
         quantiteSofts = root.findViewById(R.id.quantiteSofts)
@@ -86,6 +102,47 @@ class HomeFragment : Fragment() {
             quantiteExtravagants.text = quantiteTotaleExtravagants.toString()
             quantiteCafes.text = quantiteTotaleCafes.toString()
             quantiteThes.text = quantiteTotaleThes.toString()
+        }
+
+        buttonHome2Sirops.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("category", "Sirops")
+            findNavController().navigate(R.id.softsFragment, bundle)
+        }
+        buttonHome2Softs.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("category", "Softs")
+            findNavController().navigate(R.id.softsFragment, bundle)
+        }
+        buttonHome2Bieres.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("category", "Bieres")
+            findNavController().navigate(R.id.alcoolFragment, bundle)
+        }
+        buttonHome2Vins.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("category", "Vins")
+            findNavController().navigate(R.id.alcoolFragment, bundle)
+        }
+        buttonHome2Classiques.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("category", "Classiques")
+            findNavController().navigate(R.id.alcoolFragment, bundle)
+        }
+        buttonHome2Extravagants.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("category", "Extravagants")
+            findNavController().navigate(R.id.alcoolFragment, bundle)
+        }
+        buttonHome2Cafes.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("category", "Cafes")
+            findNavController().navigate(R.id.softsFragment, bundle)
+        }
+        buttonHome2Thes.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("category", "Thes")
+            findNavController().navigate(R.id.softsFragment, bundle)
         }
 
         return root

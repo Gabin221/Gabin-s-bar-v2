@@ -84,6 +84,34 @@ class SoftsFragment : Fragment() {
         boissonAdapterThes = BoissonAdapter(boissonsListThes)
         recyclerViewThes.adapter = boissonAdapterThes
 
+        val category = arguments?.getString("category")
+        when (category) {
+            "Sirops" -> {
+                contenuSirops.visibility = View.VISIBLE
+                contenuSoft.visibility = View.GONE
+                contenuCafes.visibility = View.GONE
+                contenuThes.visibility = View.GONE
+            }
+            "Softs" -> {
+                contenuSirops.visibility = View.GONE
+                contenuSoft.visibility = View.VISIBLE
+                contenuCafes.visibility = View.GONE
+                contenuThes.visibility = View.GONE
+            }
+            "Cafes" -> {
+                contenuSirops.visibility = View.GONE
+                contenuSoft.visibility = View.GONE
+                contenuCafes.visibility = View.VISIBLE
+                contenuThes.visibility = View.GONE
+            }
+            "Thes" -> {
+                contenuSirops.visibility = View.GONE
+                contenuSoft.visibility = View.GONE
+                contenuCafes.visibility = View.GONE
+                contenuThes.visibility = View.VISIBLE
+            }
+        }
+
         displayQuantites()
         gestionClicks()
 
