@@ -21,6 +21,7 @@ class AlcoolAdapter(private val boissonList: List<dataClassAlcool>) : RecyclerVi
         val imageView: ImageView = itemView.findViewById(R.id.imageAlcool)
         val quantiteTextView: TextView = itemView.findViewById(R.id.quantiteAlcoolAlcool)
         val circularProgressIndicator: CircularProgressIndicator = itemView.findViewById(R.id.circularProgressIndicator)
+        val paysAlcool: TextView = itemView.findViewById(R.id.paysAlcool)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlcoolViewHolder {
@@ -35,6 +36,7 @@ class AlcoolAdapter(private val boissonList: List<dataClassAlcool>) : RecyclerVi
             Toast.makeText(holder.itemView.context, "${boisson.nom} ajouté au panier", Toast.LENGTH_SHORT).show()
         }
         holder.nomTextView.text = boisson.nom
+        holder.paysAlcool.text = boisson.region
 
         Glide.with(holder.itemView.context)
             .load(boisson.imageUrl)

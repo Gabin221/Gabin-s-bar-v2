@@ -203,7 +203,7 @@ class AlcoolFragment : Fragment() {
             { response ->
                 val liste = response.split("|").map { item ->
                     val parts = item.split(";")
-                    dataClassAlcool(parts[0], parts[1], parts[2])
+                    dataClassAlcool(parts[0], parts[1], parts[2], parts[3])
                 }
                 boissonsListClassiques.addAll(liste)
                 quantiteTotal += liste.size
@@ -226,7 +226,7 @@ class AlcoolFragment : Fragment() {
             { response ->
                 val liste = response.split("|").map { item ->
                     val parts = item.split(";")
-                    dataClassAlcool(parts[0], parts[1], parts[2])
+                    dataClassAlcool(parts[0], parts[1], parts[2], parts[3])
                 }
                 boissonsListExtravagants.addAll(liste)
                 quantiteTotal += liste.size
