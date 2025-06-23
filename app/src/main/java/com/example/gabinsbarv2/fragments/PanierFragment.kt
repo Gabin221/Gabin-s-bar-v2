@@ -66,12 +66,12 @@ class PanierFragment : Fragment() {
 
                 commanderButton.isEnabled = false
 
-                if (SessionManager.isLoggedIn) {
+                if (SessionManager.isLoggedIn || SessionManager.pseudo == "") {
                     try {
                         val commande = monPanier.joinToString(separator = "\n    - ")
                         val texte = "${SessionManager.pseudo} aimerait bien:\n    - $commande"
                         val texteEncode = URLEncoder.encode(texte, "UTF-8")
-                        val url = "use/your/url&text=${texteEncode}"
+                        val url = "use/your/api&text=${texteEncode}"
 
                         val params = JSONObject()
 

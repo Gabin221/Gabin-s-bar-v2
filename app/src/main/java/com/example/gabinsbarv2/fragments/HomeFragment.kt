@@ -187,7 +187,7 @@ class HomeFragment : Fragment() {
 
     private fun recupererSirops() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererSirops.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -208,7 +208,7 @@ class HomeFragment : Fragment() {
 
     private fun recupererSofts() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererSofts.php"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
@@ -228,7 +228,7 @@ class HomeFragment : Fragment() {
 
     private fun recupererBieres() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererBieres.php"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
@@ -248,7 +248,7 @@ class HomeFragment : Fragment() {
 
     private fun recupererVins() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererVins.php"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
@@ -268,7 +268,7 @@ class HomeFragment : Fragment() {
 
     private fun recupererClassiques() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererClassiques.php"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
@@ -288,7 +288,7 @@ class HomeFragment : Fragment() {
 
     private fun recupererExtravagants() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererExtravagants.php"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
@@ -308,7 +308,7 @@ class HomeFragment : Fragment() {
 
     private fun recupererCafes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererCafes.php"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->
@@ -328,7 +328,7 @@ class HomeFragment : Fragment() {
 
     private fun recupererThes() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererThes.php"
 
         val stringRequest = StringRequest(Request.Method.GET, url,
             { response ->

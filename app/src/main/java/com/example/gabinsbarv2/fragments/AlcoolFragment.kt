@@ -178,7 +178,7 @@ class AlcoolFragment : Fragment() {
 
     private fun recupererBieres() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererBieres.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -201,7 +201,7 @@ class AlcoolFragment : Fragment() {
 
     private fun recupererVins() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererVins.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -224,7 +224,7 @@ class AlcoolFragment : Fragment() {
 
     private fun recupererClassiques() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererClassiques.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -247,7 +247,7 @@ class AlcoolFragment : Fragment() {
 
     private fun recupererExtravagants() {
         val queue = Volley.newRequestQueue(requireContext())
-        val url = "use/your/url"
+        val url = "use/your/api/Api_gabinsbar/recupererExtravagants.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
